@@ -12,9 +12,10 @@ inquirer.prompt([
        name: 'description'
     },
     {
-        type: 'input',
-        message: "Table of Conents?",
-        name: 'contents'
+        type: 'checkbox',
+        message: "Table of Conents",
+        name: 'contents',
+        choices: ['Installation \r', '* Usage \r', '* License \r', '* Contributers \r', '* Tests \r']
     },
     {
         type: 'input',
@@ -25,6 +26,12 @@ inquirer.prompt([
         type: 'input',
         message: 'What is the usage of this project?',
         name: 'usage'
+    },
+    {
+        type: 'list',
+        message: 'What license would you like to use?',
+        name: 'license',
+        choices: ['MIT', 'GPL-2.0', 'AFL-3.0', 'BSD 4-Clause', 'GPLV3']
     },
     {
         type: 'input',
@@ -45,7 +52,7 @@ inquirer.prompt([
 
 # Table of Contents
 
-* ${response.contents}
+* ${response.contents.join('')}
 
 # Installation
 
@@ -54,6 +61,10 @@ inquirer.prompt([
 # Project Usage
 
 * ${response.usage}
+
+# License
+
+* ${response.license}
 
 # Contributers
 
